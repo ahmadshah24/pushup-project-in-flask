@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block head %} {{super()}} <link rel="stylesheet" href="{{url_for('static', filename='main_style.css')}}"> {% endblock head %}
+{% block body %}
+
+
+
+<h1>hello for the index page</h1>
+
+
+<center>
+    <img src="{{url_for('static', filename='images/pushup.png')}}"  alt="push man" height="200px">
+</center>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum maiores, officia, quam odit sit ex modi provident ullam eum illum voluptas tempore perferendis atque, quidem delectus aspernatur repudiandae voluptate exercitationem!</p>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}

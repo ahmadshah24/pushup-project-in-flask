@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main_style.css') }}">
+{% endblock head %}
+
+{% block body %}
+<div class="container">
+    <form method="POST" action="{{ url_for('main.update_workout', workout_id=workout.id) }}">
+        <h2>Update Workout</h2>
+        {% set messages = get_flashed_messages() %}
+        {% if messages %}
+            <div>
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        <div class="form-control">
+            <label class="form-label" for="pushups">Push-ups:</label>
+            <input type="number" name="pushups" class="form-control" value="{{ workout.pushups }}" aria-describedby="pushupsHelp">
+            <label  class="form-label" for="comment">Comment:</label>
+            <input name="comment" rows="4" class="form-control" value="{{ workout.comment }}"></input>
+            
+            <!-- Add other fields you want to update -->
+            
+            <button class="btn btn-outline-primary my-3" type="submit">Update</button>
+        </form>
+    </div>
+</div>
+{% endblock body %}
